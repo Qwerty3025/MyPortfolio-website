@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+  }
+  
+  :root {
+    --bg-color:rgb(31, 31, 96) ; 
+   --text-color:lightblue;
+    --text : white;
+    --main-color:#fff;
+  }
+  body {
+    background: var(--bg-color);
+  }
+  
+  
+  html {
+    font-size: 62.5%;
+    /* overflow-x: hidden; */
+  }
+  
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .3s;
+    background-color: var(--bg-color);
+  }
+  
+  .header.sticky {
+    background: var(--text);
+  }
+  
+  .logo {
+    position: relative;
+    font-size: 2.5rem;
+    color: var(--text);
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .navbar {
+    position: relative;
+  }
+  
+  .navbar a {
+    font-size: 1.5rem;
+    color: var(--text);
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 3.5rem;
+    transition: .3s;
+  }
+  
+  .navbar a:hover,
+  .navbar a.active {
+    color: var(--text-color);
+  }
+  
+  #menu-icon {
+    position: relative;
+    font-size: 3.6rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .logo .animate,
+  .navbar .animate,
+  #menu-icon .animate {
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+  }
+  
+  
+  .animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color); 
+    z-index: 98;
+  }
+  
+  
+  
+  .logo .animate,
+  .navbar .animate,
+  #menu-icon .animate{
+    animation: showRight 4s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+  }
+  
+  .animate.scroll {
+    transition: 1s ease;
+    transition-delay: calc(.3s / var(--i));
+    animation: none;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .header {
+        background: var(--bg-color  );
+    }
+  
+    #menu-icon {
+        display: block;
+    }
+  
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        padding: 1rem 4%;
+        background: var(--text);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        z-index: 1;
+        transition: .25s ease;
+        transition-delay: .25s;
+    }
+  
+    .navbar.active {
+        left: 0;
+        transition-delay: 0s;
+    }
+  
+    .navbar .active-nav {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        z-index: -1;
+        transition: .25s ease;
+        transition-delay: 0s;
+    }
+  
+    .navbar.active .active-nav {
+        left: 0;
+        transition-delay: .25s;
+    }
+  
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        transform: translateX(-20rem);
+        transition: .25s ease;
+        transition-delay: 0s;
+    }
+  
+    .navbar.active a {
+        transform: translateX(0);
+        transition-delay: .25s;
+    }
+  }
+  
+  @keyframes showRight {
+    100% {
+        width: 0;
+    }
+  }
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* contact css */
+  
+  
+  .contact {
+      min-height: auto;
+      padding-bottom: 7rem;
+      background: var(--bg-color);
+    }
+    .heading {
+        position: relative;
+        font-size: 5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+    .contact h2 {
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    span {
+        color: var(--main-color);
+      }
+    
+.heading {
+    position: relative;
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: auto;
+    text-align: center;
+}
+
+.contact form .input-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box .input-field {
+    position: relative;
+    width: 49%;
+    margin: .8rem 0;
+}
+
+.contact form .input-box .input-field input,
+.contact form  .textarea-field textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: transparent;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+}
+
+.contact  form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder {
+    color: var(--text-color);
+}
+.contact form .focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--second-bg-color);
+    border-radius: .6rem;
+    z-index: -1;
+    transition: 5s;
+}
+
+.contact form .input-box .input-field input:focus ~.focus,
+.contact form .input-box .input-field input:valid~.focus, 
+.contact form .textarea-field textarea:focus ~.focus,
+.contact form .textarea-field textarea:focus ~.focus {
+    width: 100%;
+}
+.contact form .textarea-field {
+    position: relative;
+    margin: .8rem 0 2.7rem;
+    display: flex;
+}
+
+.contact form .textarea-field textarea {
+    resize: none;
+}
+
+.contact form .btn-box.btns .btn {
+    cursor: pointer;
+}
+
+.btn-box {
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    width: 34.5rem;
+    height: 5rem;
+    
+}
+
+.btn-box .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 100%;
+    background: var(--text-color);
+    border: .2rem solid var(--text-color);
+    border-radius: .8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    overflow: hidden;
+    z-index: 1;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.btn-box .btn:hover {
+    color: var(--main-color);
+}
+
+
+
+.btn-box .btn:nth-child(2):hover {
+    color: var(--bg-color);
+}
+
+
+.btn-box .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box .btn:hover::before {
+    width: 100%;
+}
+
+
+
+
+
